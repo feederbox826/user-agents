@@ -31,8 +31,8 @@ jobs:
     # commit and push
     - run: |
         cd output
-        git config user.name = "github-actions[bot]"
-        git config user.email = "<41898282+github-actions[bot]@users.noreply.github.com>"
+        git config user.name "github-actions[bot]"
+        git config user.email "<41898282+github-actions[bot]@users.noreply.github.com>"
 
         git add user-agents.json
         git commit -m "automated user-agent update" || exit 0
