@@ -80,7 +80,7 @@ const getUserAgents = async () => {
     makeFirefoxUA(UBUNTU_PLATFORM, firefoxVersions.esr),
     makeFirefoxUA(UBUNTU_PLATFORM, firefoxVersions.latest),
     makeSafariUA(safariVersion),
-    constructEdgeUA(WINDOWS, edgeVersion)
+    makeEdgeUA(WINDOWS, edgeVersion)
   ]
 }
 
