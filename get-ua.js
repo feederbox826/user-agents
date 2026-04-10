@@ -1,6 +1,7 @@
 // https://www.chromium.org/updates/ua-reduction/#token-reference
 const WINDOWS = 'Windows NT 10.0; Win64; x64'
 const MACOS = 'Macintosh; Intel Mac OS X 10_15_7' // arch independent
+const FF_MACOS = 'Macintosh; Intel Mac OS X 10.15'
 const LINUX = 'X11; Linux x86_64'
 
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1789310
@@ -71,8 +72,8 @@ const getUserAgents = async () => {
     makeChromeUA(WINDOWS, chromeVersion),
     makeChromeUA(LINUX, lastChromeVersion),
     makeChromeUA(LINUX, chromeVersion),
-    makeFirefoxUA(MACOS, firefoxVersions.esr),
-    makeFirefoxUA(MACOS, firefoxVersions.latest),
+    makeFirefoxUA(FF_MACOS, firefoxVersions.esr),
+    makeFirefoxUA(FF_MACOS, firefoxVersions.latest),
     makeFirefoxUA(WINDOWS, firefoxVersions.esr),
     makeFirefoxUA(WINDOWS, firefoxVersions.latest),
     makeFirefoxUA(LINUX, firefoxVersions.esr),
