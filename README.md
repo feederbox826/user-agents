@@ -1,5 +1,7 @@
 # user-agent strings
 
+programatically: https://feederbox826.github.io/user-agents/user-agents.json
+
 Latest user-agent strings for major browsers - same format as [jnrbsn/user-agents](https://github.com/jnrbsn/user-agents)
 
 - Chrome [laststable, stable] on [mac, windows, linux]
