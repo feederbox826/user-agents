@@ -26,8 +26,8 @@ const getFirefoxVersion = () =>
   fetch('https://product-details.mozilla.org/1.0/firefox_versions.json')
     .then(res => res.json())
     .then(data => ({
-      "latest": onlyMajor(data.LATEST_FIREFOX_VERSION),
-      "esr": onlyMajor(data.FIREFOX_ESR)
+      "latest": dropMinor(data.LATEST_FIREFOX_VERSION),
+      "esr": dropMinor(data.FIREFOX_ESR)
     }))
 
 // calculate last major by hand
