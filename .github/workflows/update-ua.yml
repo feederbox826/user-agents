@@ -25,11 +25,13 @@ jobs:
     - uses: denoland/setup-deno@v2
       with:
         cache: true
-    - run: |
+    - name: build user-agents with deno
+      run: |
         cd output
         deno --allow-net --allow-write=user-agents.json ../source/get-ua.js
     # commit and push
-    - run: |
+    - name: Commit and push
+      run: |
         cd output
         git config user.name "github-actions[bot]"
         git config user.email "<41898282+github-actions[bot]@users.noreply.github.com>"
