@@ -1,0 +1,39 @@
+name: update UAs
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 */7 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        ref: main
+        path: source
+    - uses: actions/checkout@v6
+      with:
+        ref: generated
+        path: output
+    - uses: denoland/setup-deno@v2
+      with:
+        cache: true
+    - run: |
+        cd output
+        deno --allow-net --allow-write=user-agents.json ../source/get-ua.js
+    # commit and push
+    - run: |
+        cd output
+        git config user.name = "github-actions[bot]"
+        git config user.email = "<41898282+github-actions[bot]@users.noreply.github.com>"
+
+        git add user-agents.json
+        git commit -m "automated user-agent update" || exit 0
+        git push origin generated
